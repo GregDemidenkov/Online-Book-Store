@@ -68,7 +68,7 @@ const NavLinkStyled = styled(NavLink)`
     ${(props: {logo: boolean}) => props.logo &&`
         ${flex};
     `}
-    ${(props: {page: boolean}) => props.page &&`
+    ${(props: {pageEl: boolean}) => props.pageEl &&`
         color: ${theme.brown};
         font-size: 16px;
         width: 130px;
@@ -154,9 +154,9 @@ export const Header: React.FC = () => {
                 </HeaderContent>
                 <HeaderContent>
                     <Nav pages>
-                        <NavLinkStyled to = {paths.books} page>Книги</NavLinkStyled>
-                        <NavLinkStyled to = {paths.authors} page>Авторы</NavLinkStyled>
-                        <NavLinkStyled to = {paths.publishier} page>Издательства</NavLinkStyled>
+                        <NavLinkStyled to = "books/all-categories/page_1/sort_popular" pageEl>Книги</NavLinkStyled>
+                        <NavLinkStyled to = {paths.authors} pageEl>Авторы</NavLinkStyled>
+                        <NavLinkStyled to = {paths.publishier} pageEl>Издательства</NavLinkStyled>
                     </Nav>
                 </HeaderContent>
             </Container>

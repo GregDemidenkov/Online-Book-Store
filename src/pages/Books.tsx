@@ -28,20 +28,19 @@ export const Books: React.FC = () => {
         const genre = params.genre ? params.genre : ""
         const page = params.page ? Number(params.page) : 1
         const sort = params.sort ? params.sort : ""
-        
+
         dispatch(getBooks({genre, sort, page}))
         dispatch(setCategory(genre))
         dispatch(setSort(sort))
 
         window.scrollTo(0, 0);
         document.title = "Книги"
-        navigate("/all-categories/page_1/sort_popular")
 
     }, [sort, page, params])
 
     const onChangeCategory = (category: string, url: string) => {
         window.scrollTo(0, 0);
-        navigate(`/${url}/page_1/sort_${sort}`)
+        navigate(`/books/${url}/page_1/sort_${sort}`)
         dispatch(setCategory(category))
         if (category !== "Все категории") {
             dispatch(setPage(1))
@@ -52,14 +51,14 @@ export const Books: React.FC = () => {
         dispatch(setSort(sort))
         dispatch(setPage(1))
         const foundItem = slidebarList.find((obj) => obj.label === category)
-        navigate(`/${foundItem?.url}/page_1/sort_${sort}`)
+        navigate(`/books/${foundItem?.url}/page_1/sort_${sort}`)
     };
 
     const onChangePage = (page: number, category: string) => {
         window.scrollTo(0, 0);
         dispatch(setPage(page))
         const foundItem = slidebarList.find((obj) => obj.label === category)
-        navigate(`/${foundItem?.url}/page_${page}/sort_${sort}`)
+        navigate(`/books/${foundItem?.url}/page_${page}/sort_${sort}`)
     };
     
     return (
