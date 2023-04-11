@@ -1,5 +1,5 @@
 export const paths = {
-    main: 'home',  
+    main: '/',  
     books: "books/:genre/page_:page/sort_:sort",
     authors: "authors",
     publishier: "publishier",
